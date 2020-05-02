@@ -1,0 +1,13 @@
+<h2>商品詳細</h2>
+<%= @item.id %>
+<%= @item.name %>
+<%= @item.price %>円
+
+<%= form_for(@cart, url:cart_items_path) do |f| %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
+    <div>
+        <h4>数量</h4>
+        <%= f.select :quantity,[1,2,3,4,5,6,7,8,9,10] %>
+    </div>
+    <%= f.submit 'カートに入れる' %>
+<% end %>

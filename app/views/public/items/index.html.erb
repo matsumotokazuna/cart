@@ -1,0 +1,28 @@
+<h2>商品登録</h2>
+<%= form_for(@item, url:items_path) do |f| %>
+    <div>
+        <h4>商品名</h4>
+        <%= f.text_field :name %>
+    </div>
+    <div>
+        <h4>商品価格（税抜）</h4>
+        <%= f.text_field :price %>
+    </div>
+    <%= f.submit '商品登録' %>
+<% end %>
+
+<h2>商品一覧</h2>
+<table>
+    <tr>
+        <th>商品名</th>
+        <th>商品価格（税抜）</th>
+        <th></th>
+    </tr>
+    <% @items.each do |item| %>
+    <tr>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td><%= link_to '詳細', item_path(item.id) %></td>
+    </tr>
+    <% end %>
+</table>

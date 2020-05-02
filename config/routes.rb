@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :edit, :update]
     get '/customers/withdraw' => 'customers#withdraw'
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show, :create]
     resources :cart_items, only: [:index, :create, :update, :destroy]
     delete '/cart_items' => 'cart_items#destroy_all'
     resources :orders, only: [:index, :show, :new, :create]
